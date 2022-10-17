@@ -1,6 +1,6 @@
 Name:       libyaml
 Summary:    YAML 1.1 parser and emitter written in C
-Version:    0.1.4
+Version:    0.2.5
 Release:    1
 Group:      System Environment/Libraries
 License:    MIT
@@ -26,11 +26,11 @@ developing applications that use LibYAML.
 
 
 %prep
-%setup -q -n %{name}-%{version}/%{name}
+%setup -q -n %{name}-%{version}/upstream
 
 %build
-%configure --disable-static
-make %{?jobs:-j%jobs}
+%reconfigure --disable-static
+%make_build
 
 %install
 rm -rf %{buildroot}
@@ -45,13 +45,11 @@ make check
 
 %files
 %defattr(-,root,root,-)
-%doc LICENSE README
+%doc License ReadMe.md
 %{_libdir}/%{name}*.so.*
 
 %files devel
 %defattr(-,root,root,-)
-
-%doc doc/html
 %{_libdir}/%{name}*.so
 %{_libdir}/pkgconfig/yaml-0.1.pc
 %{_includedir}/yaml.h
