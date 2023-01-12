@@ -45,12 +45,13 @@ make check
 
 %files
 %defattr(-,root,root,-)
-%doc License ReadMe.md
+%license License
 %{_libdir}/%{name}*.so.*
 
 %files devel
 %defattr(-,root,root,-)
 %{_libdir}/%{name}*.so
+%doc ReadMe.md
 %{_libdir}/pkgconfig/yaml-0.1.pc
 %{_includedir}/yaml.h
 
